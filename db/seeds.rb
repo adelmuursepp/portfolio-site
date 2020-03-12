@@ -8,28 +8,28 @@
 
 User.create!(
   name: "Admin User",
-  email: "admin@example.com",
+  email: "adel.muursepp@gmail.com",
   password: "passwordpassword",
   password_confirmation: "passwordpassword",
   roles: "site_admin"
 )
 
-User.create!(
-  name: "Regular User",
-  email: "regular@example.com",
-  password: "passwordpassword",
-  password_confirmation: "passwordpassword"
-)
+# User.create!(
+#   name: "Regular User",
+#   email: "regular@example.com",
+#   password: "passwordpassword",
+#   password_confirmation: "passwordpassword"
+# )
 
-5.times do
-  random_password = Faker::Internet.password(16, 26)
-  User.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: random_password,
-    password_confirmation: random_password
-  )
-end
+# 5.times do
+#   random_password = Faker::Internet.password(16, 26)
+#   User.create!(
+#     name: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password: random_password,
+#     password_confirmation: random_password
+#   )
+# end
 
 puts "#{User.count} users created."
 
@@ -206,26 +206,33 @@ Another footnote link[^3]. Duplicated footnote reference[^2].
 
 [^2]: Footnote text.'
 
-10.times do
-  4.times do |blog|
-    Blog.create!(
-      title: Faker::Lorem.words(5).join(" ").titlecase,
-      body: Faker::Lorem.paragraphs(3).join("\n\n"),
-      topic_id: rand(1..8),
-      status: rand(0..1)
-    )
-  end
-  Blog.create!(
-    title: Faker::Lorem.words(5).join(" ").titlecase,
-    body: markdown_sample,
-    topic_id: rand(1..8),
-    status: rand(0..1)
-  )
-end
+# 10.times do
+#   4.times do |blog|
+#     Blog.create!(
+#       title: Faker::Lorem.words(5).join(" ").titlecase,
+#       body: Faker::Lorem.paragraphs(3).join("\n\n"),
+#       topic_id: rand(1..8),
+#       status: rand(0..1)
+#     )
+#   end
+#   Blog.create!(
+#     title: Faker::Lorem.words(5).join(" ").titlecase,
+#     body: markdown_sample,
+#     topic_id: rand(1..8),
+#     status: rand(0..1)
+#   )
+# end
+
+Blog.create!(
+  title: Faker::Lorem.words(5).join(" ").titlecase,
+  body: Faker::Lorem.paragraphs(3).join("\n\n"),
+  topic_id: rand(1..8),
+  status: rand(0..1)
+)
 
 puts "#{Blog.count} blog posts created."
 
-100.times do
+1.times do
     Comment.create!(
         content: Faker::Lorem.words(15).join(" "),
         user_id: rand(1..User.count),
@@ -244,24 +251,24 @@ end
 
 puts "#{Skill.count} skills created."
 
-8.times do |portfolio_item|
-  @portfolio = Portfolio.create!(
-    title: Faker::Lorem.words(5).join(" ").titlecase,
-    subtitle: Faker::Lorem.words(5).join(" ").titlecase,
-    body: Faker::Lorem.sentences(20).join(" ")
-  )
-  @portfolio.main_image.attach(io: File.open("#{Rails.root}/app/webpacker/images/600x400.png"), filename: '600x400.png', content_type: 'image/png')
-  @portfolio.thumb_image.attach(io: File.open("#{Rails.root}/app/webpacker/images/350x200.png"), filename: '350x200.png', content_type: 'image/png')
-end
+# 8.times do |portfolio_item|
+#   @portfolio = Portfolio.create!(
+#     title: Faker::Lorem.words(5).join(" ").titlecase,
+#     subtitle: Faker::Lorem.words(5).join(" ").titlecase,
+#     body: Faker::Lorem.sentences(20).join(" ")
+#   )
+#   @portfolio.main_image.attach(io: File.open("#{Rails.root}/app/webpacker/images/600x400.png"), filename: '600x400.png', content_type: 'image/png')
+#   @portfolio.thumb_image.attach(io: File.open("#{Rails.root}/app/webpacker/images/350x200.png"), filename: '350x200.png', content_type: 'image/png')
+# end
 
-puts "#{Portfolio.count} portfolio items created."
+# puts "#{Portfolio.count} portfolio items created."
 
-Portfolio.all.each do |portfolio_item|
-  3.times do |technology|
-    portfolio_item.technologies.create!(
-      name: Faker::Lorem.characters(6).titlecase
-    )
-  end
-end
+# Portfolio.all.each do |portfolio_item|
+#   3.times do |technology|
+#     portfolio_item.technologies.create!(
+#       name: Faker::Lorem.characters(6).titlecase
+#     )
+#   end
+# end
 
 puts "#{Technology.count} technologies created."

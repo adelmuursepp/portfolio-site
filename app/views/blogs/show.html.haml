@@ -9,7 +9,6 @@
     %p= pluralize @blog.comments.count, "comment"
     %nav.breadcrumb
       = link_to 'Home', root_url, class: "breadcrumb-item"
-      = link_to @blog.topic.title, @blog.topic, class: "breadcrumb-item"
       %span.breadcrumb-item.active= @blog.title
       - if logged_in?(:site_admin)
         %div

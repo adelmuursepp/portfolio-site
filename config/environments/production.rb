@@ -93,7 +93,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
   # ActionCable Settings
   config.action_cable.allowed_request_origins = ['https://chazona-portfolio.herokuapp.com', 'http://chazona-portfolio.herokuapp.com', 'https://chazona-portfolio-prod.herokuapp.com', 'http://chazona-portfolio-prod.herokuapp.com', 'https://chazonabaum.com', 'http://chazonabaum.com']
   config.action_cable.url = 'wss://chazona-portfolio-prod.herokuapp.com/cable'

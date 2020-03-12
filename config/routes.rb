@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'contact', to: 'messages#create', as: 'create_message'
 
   resources :topics, only: [:index, :show]
+  resources :resources, only: [:index, :show]
 
   resources :blogs do
     member do

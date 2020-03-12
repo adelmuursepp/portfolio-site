@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def copyright_generator
-    @copyright = ChznbaumViewTool::Renderer.copyright 'Chazona Baum', 'All rights reserved'
+    @copyright = ChznbaumViewTool::Renderer.copyright 'Adel Müürsepp', 'All rights reserved'
   end
 
   def nav_items
@@ -53,6 +53,10 @@ module ApplicationHelper
       {
         url: blogs_path,
         title: 'Blog'
+      },
+      {
+        url: resources_path,
+        title: 'Resources '
       },
       {
         url: new_message_path,
@@ -88,7 +92,7 @@ module ApplicationHelper
       alert_type = :notice
       alert_title = "Notice"
     end
-        
+
     if alert
       alert_generator alert, alert_type, alert_title
     end
