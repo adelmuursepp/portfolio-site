@@ -71,6 +71,9 @@ gem 'kaminari', '~> 0.17.0'
 # Nested Forms
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 
+# Forms
+gem 'simple_form'
+
 # Uploading
 gem 'aws-sdk-s3', '~> 1.17'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'

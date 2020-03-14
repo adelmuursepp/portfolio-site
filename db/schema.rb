@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_055245) do
+ActiveRecord::Schema.define(version: 2020_03_13_151357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,31 @@ ActiveRecord::Schema.define(version: 2020_03_12_055245) do
     t.integer "position"
   end
 
+  create_table "resource_categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resource_items", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.text "body"
+    t.bigint "resource_topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_topic_id"], name: "index_resource_items_on_resource_topic_id"
+  end
+
+  create_table "resource_topics", force: :cascade do |t|
+    t.string "title"
+    t.text "intro"
+    t.bigint "resource_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_category_id"], name: "index_resource_topics_on_resource_category_id"
+  end
+
   create_table "resources", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -132,5 +157,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_055245) do
 
   add_foreign_key "comments", "blogs"
   add_foreign_key "comments", "users"
+  add_foreign_key "resource_items", "resource_topics"
+  add_foreign_key "resource_topics", "resource_categories"
   add_foreign_key "technologies", "portfolios"
 end

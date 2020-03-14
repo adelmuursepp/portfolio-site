@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :topics, only: [:index, :show]
   resources :resources, only: [:index, :show]
+  resources :resource_categories, only: [:index, :show]
+  resources :resource_topics, only: [:index, :show]
 
   resources :blogs do
     member do

@@ -55,7 +55,7 @@ module ApplicationHelper
         title: 'Blog'
       },
       {
-        url: resources_path,
+        url: resource_categories_path,
         title: 'Resources '
       },
       {

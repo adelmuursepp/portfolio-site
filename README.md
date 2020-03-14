@@ -139,6 +139,9 @@ rails s
 - Implement featured image on blogs and plug them into the Twitter cards
 - Show skills percentages and collapsible info on about page even when CSS and JS are stripped (like browsers' reading mode)
 - PWA
+- Attach multiple images to blog posts
+- Add simple form so images can be uploaded and forms look pretty
+- Allow different users to check their material when done
 
 ## Credits
 
